@@ -135,7 +135,7 @@ export default function Navigation() {
                 >
                   <span className="sr-only">Workflow</span>
 
-                  <Image
+                  <img
                     src="/images/Logo.png"
                     height={75}
                     width={100}
