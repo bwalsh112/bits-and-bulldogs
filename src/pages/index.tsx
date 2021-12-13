@@ -3,14 +3,42 @@ import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
 import { SocialList } from "../components/SocialList";
-
+import TailwindBlog from "../components/TailwindBlog";
+import TailwindPage from "../components/TailwindPage";
+import { MailIcon, MenuIcon, PhoneIcon, XIcon } from "@heroicons/react/outline";
+const offices = [
+  {
+    id: 1,
+    city: "Los Angeles",
+    address: ["4556 Brendan Ferry", "Los Angeles, CA 90210"],
+  },
+  {
+    id: 2,
+    city: "New York",
+    address: ["886 Walter Streets", "New York, NY 12345"],
+  },
+  {
+    id: 3,
+    city: "Toronto",
+    address: ["7363 Cynthia Pass", "Toronto, ON N3Y 4H8"],
+  },
+  { id: 4, city: "London", address: ["114 Cobble Lane", "London N1 2EF"] },
+];
 export default function Index() {
   return (
     <Layout>
       <BasicMeta url={"/"} />
       <OpenGraphMeta url={"/"} />
       <TwitterCardMeta url={"/"} />
-      <div className="container">
+      {/* <TailwindPage /> */}
+      {/* Header */}
+      <div className="flex justify-center">
+      <div style={{width: '1100px'}}>
+        <TailwindBlog />
+      </div>
+      </div>
+      {/* <div className="container">
+        <TailwindBlog />
         <div>
           <h1>
             Hi, We're Next.js & Netlify<span className="fancy">.</span>
@@ -19,44 +47,7 @@ export default function Index() {
           <h2>A blog template with Next.js and Netlify.</h2>
           <SocialList />
         </div>
-      </div>
-      <style jsx>{`
-        .container {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex: 1 1 auto;
-          padding: 0 1.5rem;
-        }
-        h1 {
-          font-size: 2.5rem;
-          margin: 0;
-          font-weight: 500;
-        }
-        h2 {
-          font-size: 1.75rem;
-          font-weight: 400;
-          line-height: 1.25;
-        }
-        .fancy {
-          color: #15847d;
-        }
-        .handle {
-          display: inline-block;
-          margin-top: 0.275em;
-          color: #9b9b9b;
-          letter-spacing: 0.05em;
-        }
-
-        @media (min-width: 769px) {
-          h1 {
-            font-size: 3rem;
-          }
-          h2 {
-            font-size: 2.25rem;
-          }
-        }
-      `}</style>
+      </div> */}
     </Layout>
   );
 }

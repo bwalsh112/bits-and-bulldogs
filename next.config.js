@@ -1,4 +1,7 @@
 module.exports = ({
+  images: {
+    domains: ['tailwindui.com', 'example2.com'],
+  },
   pageExtensions: ["tsx"],
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.module.rules.push(
