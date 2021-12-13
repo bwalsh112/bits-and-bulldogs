@@ -139,7 +139,6 @@ export default function Navigation() {
                     src="/images/Logo.png"
                     height={75}
                     width={100}
-                    layout="responsive"
                   />
                   {/* <img
                     className="h-8 w-auto sm:h-10"
