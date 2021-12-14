@@ -100,7 +100,7 @@ export default function TailwindBlog({ posts, pagination }) {
                   {post.title}
                 </p>
                 <p className="mt-3 text-base text-gray-500">
-                  {postTest[i % 4].description}
+                  {post.description}
                 </p>
               </a>
               <div className="mt-3">

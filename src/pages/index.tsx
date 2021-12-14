@@ -2,16 +2,11 @@ import Layout from "../components/Layout";
 import BasicMeta from "../components/meta/BasicMeta";
 import OpenGraphMeta from "../components/meta/OpenGraphMeta";
 import TwitterCardMeta from "../components/meta/TwitterCardMeta";
-import { SocialList } from "../components/SocialList";
 import TailwindBlog from "../components/TailwindBlog";
-import TailwindPage from "../components/TailwindPage";
-import { MailIcon, MenuIcon, PhoneIcon, XIcon } from "@heroicons/react/outline";
-import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
-import PostList from "../components/PostList";
+import { GetStaticProps } from "next";
 import config from "../lib/config";
-import { countPosts, listPostContent, PostContent } from "../lib/posts";
-import { listTags, TagContent } from "../lib/tags";
+import { listPostContent } from "../lib/posts";
+import { listTags } from "../lib/tags";
 
 
 export default function Index({ posts, tags, pagination, page }) {
