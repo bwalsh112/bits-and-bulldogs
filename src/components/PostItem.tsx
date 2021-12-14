@@ -12,7 +12,7 @@ export default function PostItem({ post }: Props) {
       <a>
         <Date date={parseISO(post.date)} />
         <h2>{post.title}</h2>
-        <style jsx>
+        {/* <style jsx>
           {`
             a {
               color: #222;
@@ -23,7 +23,7 @@ export default function PostItem({ post }: Props) {
               font-weight: 500;
             }
           `}
-        </style>
+        </style> */}
       </a>
     </Link>
   );

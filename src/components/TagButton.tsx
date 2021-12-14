@@ -10,7 +10,7 @@ export default function TagButton({ tag }: Props) {
       <Link href={"/posts/tags/[[...slug]]"} as={`/posts/tags/${tag.slug}`}>
         <a>{tag.name}</a>
       </Link>
-      <style jsx>{`
+      {/* <style jsx>{`
         a {
           display: inline-block;
           border-radius: 3px;
@@ -23,7 +23,7 @@ export default function TagButton({ tag }: Props) {
         a:hover {
           background-color: rgba(21, 132, 125, 0.4);
         }
-      `}</style>
+      `}</style> */}
     </>
   );
 }

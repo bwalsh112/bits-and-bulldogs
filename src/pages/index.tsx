@@ -6,25 +6,15 @@ import { SocialList } from "../components/SocialList";
 import TailwindBlog from "../components/TailwindBlog";
 import TailwindPage from "../components/TailwindPage";
 import { MailIcon, MenuIcon, PhoneIcon, XIcon } from "@heroicons/react/outline";
-const offices = [
-  {
-    id: 1,
-    city: "Los Angeles",
-    address: ["4556 Brendan Ferry", "Los Angeles, CA 90210"],
-  },
-  {
-    id: 2,
-    city: "New York",
-    address: ["886 Walter Streets", "New York, NY 12345"],
-  },
-  {
-    id: 3,
-    city: "Toronto",
-    address: ["7363 Cynthia Pass", "Toronto, ON N3Y 4H8"],
-  },
-  { id: 4, city: "London", address: ["114 Cobble Lane", "London N1 2EF"] },
-];
-export default function Index() {
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
+import PostList from "../components/PostList";
+import config from "../lib/config";
+import { countPosts, listPostContent, PostContent } from "../lib/posts";
+import { listTags, TagContent } from "../lib/tags";
+
+
+export default function Index({ posts, tags, pagination, page }) {
   return (
     <Layout>
       <BasicMeta url={"/"} />
@@ -34,7 +24,7 @@ export default function Index() {
       {/* Header */}
       <div className="flex justify-center">
       <div style={{width: '1100px'}}>
-        <TailwindBlog />
+        <TailwindBlog posts={posts} pagination={pagination} />
       </div>
       </div>
       {/* <div className="container">
@@ -51,3 +41,28 @@ export default function Index() {
     </Layout>
   );
 }
+
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const posts = listPostContent(1, config.posts_per_page);
+  const tags = listTags();
+
+  return {
+    props: {
+      posts,
+      tags,
+    },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const pages = Math.ceil(countPosts() / config.posts_per_page);
+  console.log(pages, 'check')
+  const paths = Array.from(Array(pages - 1).keys()).map((it) => ({
+    params: { page: (it + 2).toString() },
+  }));
+  return {
+    paths: paths,
+    fallback: false,
+  };
+};
