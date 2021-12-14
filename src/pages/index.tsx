@@ -55,14 +55,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = Math.ceil(countPosts() / config.posts_per_page);
-  console.log(pages, 'check')
-  const paths = Array.from(Array(pages - 1).keys()).map((it) => ({
-    params: { page: (it + 2).toString() },
-  }));
-  return {
-    paths: paths,
-    fallback: false,
-  };
-};
